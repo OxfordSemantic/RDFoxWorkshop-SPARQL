@@ -1,0 +1,8 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+# What types of edges are there specifically for drivers?
+SELECT DISTINCT ?p
+WHERE {
+  ?s a :drivers ;
+    ?p ?o .
+}

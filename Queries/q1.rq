@@ -1,0 +1,8 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+# This query matches all the triples,
+# and returns all the variables from the matched results
+SELECT ?S ?P ?O
+WHERE {
+  ?S ?P ?O
+}

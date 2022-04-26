@@ -1,0 +1,13 @@
+PREFIX : <http://www.oxfordsemantic.tech/f1demo/>
+
+# Number of races per driver, ordered
+SELECT ?forename ?surname (COUNT(?race) AS ?raceCount)
+WHERE {
+  ?driver :drivers_forename ?forename ;
+          :drivers_surname ?surname .
+
+  ?result :results_driver ?driver ;
+          :results_race ?race .  
+}
+GROUP BY ?forename ?surname
+ORDER BY DESC(?raceCount)
