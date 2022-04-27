@@ -27,7 +27,7 @@ OPTIONAL {
     GROUP BY ?driver
 }
 
-FILTER(?raceWins > 5)
+FILTER(?raceWins >= 5)
 
 # Use the forename and surname to make the full name
 # This is not strictly necessary...
@@ -35,9 +35,6 @@ FILTER(?raceWins > 5)
         :drivers_surname ?surname .
 BIND(CONCAT(?forename, " ", ?surname) AS ?driverName)
 
-# Using the COALESCE keyword, we make sure that when the number of wins is undefined
-# it is 'bound' as 0.
-BIND(COALESCE(?raceWins,0) AS ?raceWinsFinal)
 # And use the two aggregatee variables to compute a percentage
 BIND(?raceWinsFinal/?raceCount AS ?percentage)
 
